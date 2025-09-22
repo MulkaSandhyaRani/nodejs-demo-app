@@ -1,0 +1,35 @@
+name: DevOps Practice CI/CD
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t hello-devops .
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8080:80 --name hello-devops hello-devops
+          sleep 5
+
+      - name: Test application
+        run: |
+          curl -I http://localhost:8080 | grep "200 OK"
+
+      - name: Stop and remove container
+        run: |
+          docker stop hello-devops || true
+          docker rm hello-devops || true
