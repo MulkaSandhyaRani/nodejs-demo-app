@@ -3,7 +3,7 @@ terraform {
     docker = {
       source  = "kreuzwerker/docker"
       # choose a stable provider version; adjust as needed
-      version = "~> 3.7.0"
+      version = "~> 3.0.2"
     }
   }
 }
