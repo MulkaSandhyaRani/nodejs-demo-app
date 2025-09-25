@@ -35,3 +35,7 @@ Steps
 
 Test
 Open [http://localhost:8080](http://localhost:8080) after pipeline run.
+
+Task 3 – Provision Docker Container using Terraform
+This project uses Terraform with the Docker provider to pull the `nginx:alpine` image and run a container named `nginx_terraform` mapped to port 8080. The setup demonstrates Infrastructure as Code by automating container provisioning, verification, and cleanup with `terraform init`, `plan`, `apply`, and `destroy`.
+
