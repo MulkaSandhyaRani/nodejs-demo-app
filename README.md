@@ -39,3 +39,18 @@ Open [http://localhost:8080](http://localhost:8080) after pipeline run.
 Task 3 – Provision Docker Container using Terraform
 This project uses Terraform with the Docker provider to pull the `nginx:alpine` image and run a container named `nginx_terraform` mapped to port 8080. The setup demonstrates Infrastructure as Code by automating container provisioning, verification, and cleanup with `terraform init`, `plan`, `apply`, and `destroy`.
 
+TASK 5 - Minikube Kubernetes Deployment
+Objective: Build a local Kubernetes cluster with Minikube and deploy a sample nginx app.
+
+How to reproduce:
+1. Install Docker, kubectl, minikube.
+2. Start minikube: `minikube start --driver=docker`
+3. Apply manifests:
+   - `kubectl apply -f deployment.yaml`
+   - `kubectl apply -f service.yaml`
+4. Access service: `minikube service my-nginx-svc --url`
+5. Scale: `kubectl scale deployment/my-nginx --replicas=4`
+6. Rolling update example: `kubectl set image deployment/my-nginx nginx=nginx:1.21.6`
+
+Task 6: Host a Static Website using GitHub Pages.
+The repo contains a simple index.html file (and optional CSS) to demonstrate how GitHub Pages can be used to host a static website directly from a repository.
